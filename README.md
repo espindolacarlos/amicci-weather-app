@@ -1,54 +1,61 @@
-# React + TypeScript + Vite
+# 🌦️ Amicci Weather App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Aplicação web simples de previsão do tempo, construída com **React**, **TypeScript**, **Vite** e **SCSS**. Ela consome dados meteorológicos de APIs externas e exibe informações como temperatura atual, sensação térmica, condição do tempo e mais, de forma intuitiva.
 
-Currently, two official plugins are available:
+## 🚀 Tecnologias Utilizadas
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- React
+- TypeScript
+- Vite
+- SCSS
+- ESLint (com configurações para React e TS)
 
-## Expanding the ESLint configuration
+## 🧩 Funcionalidades
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- Busca por localização com auto-complete do Google
+- Exibição de dados como: temperatura, umidade, sensação térmica e condição atual
+- Design limpo com responsividade via TailwindCSS
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+## ⚙️ Configuração
+
+Antes de iniciar, é necessário configurar variáveis de ambiente com suas chaves de API:
+
+```bash
+REACT_APP_GOOGLE_MAPS_API_KEY=your_google_maps_key 
+REACT_APP_OPENWEATHER_API_KEY=your_openweather_key
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## 🛠️ Instalação
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+```bash
+git clone https://github.com/espindolacarlos/amicci-weather-app.git
+cd amicci-weather-app
+pnpm install
+pnpm dev
+```
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
+## 🧪 Scripts Disponíveis
+
+```bash
+pnpm run dev — Executa o app em modo de desenvolvimento.
+
+pnpm run test — Executa os testes.
+
+pnpm run build — Compila o app para produção.
+```
+
+## ✅ Testes
+O projeto utiliza Vitest para testes:
+
+```bash
+pnpm test
+```
+## 📁 Estrutura
+
+```bash
+src/
+  components/    # Componentes reutilizáveis
+  services/      # Comunicação com APIs
+  styles/        # Estilização global
+  App.tsx        # Componente principal
 ```
