@@ -2,7 +2,7 @@ import React, { ReactNode } from 'react';
 import styles from './InformationCard.module.scss';
 import { useSkeleton } from '../../hooks/skeleton';
 
-interface CardProps {
+export interface InformationCardProps {
     title: string
     value: string
     description: string
@@ -10,7 +10,7 @@ interface CardProps {
     isLoading?: boolean
 }
 
-const InformationCard: React.FC<CardProps> = ({ title, value, description, icon, isLoading}: CardProps) => {
+const InformationCard: React.FC<InformationCardProps> = ({ title, value, description, icon, isLoading}: InformationCardProps) => {
     const ref = useSkeleton(isLoading ?? false);
 
     return (

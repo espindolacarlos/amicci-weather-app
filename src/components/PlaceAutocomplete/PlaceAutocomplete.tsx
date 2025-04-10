@@ -7,14 +7,14 @@ import { FC } from "react";
 import { useSkeleton } from "../../hooks/skeleton";
 
 
-interface AutocompleteProps {
+export interface PlaceAutocompleteProps {
     onSelect: (city: string) => void;
     defaultValue?: string;
     className?: string;
     isLoading?: boolean;
 }
 
-const PlaceAutocomplete: FC<AutocompleteProps> = ({ onSelect, defaultValue, className, isLoading }) => {
+const PlaceAutocomplete: FC<PlaceAutocompleteProps> = ({ onSelect, defaultValue, className, isLoading }) => {
     const [isSearching, setIsSearching] = useState(false);
     const [options, setOptions] = useState<string[]>([]);
     const [selectedCity, setSelectedCity] = useState<string>(defaultValue ?? "");

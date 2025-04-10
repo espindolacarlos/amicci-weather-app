@@ -8,7 +8,7 @@ import { useSkeleton } from '../../hooks/skeleton';
 import { useNotifyStore } from '../../stores/notify.store';
 import { Texts } from '../../texts/texts';
 
-interface NextDaysCardsProps {
+export interface NextDaysCardsProps {
     lon: number;
     lat: number;
     isLoading?: boolean;

@@ -6,12 +6,12 @@ import { Commons } from "../../utils/commons.utils";
 import { useSkeleton } from "../../hooks/skeleton";
 import { useMemo } from "react";
 
-interface WeatherHeroProps {
+export interface HeroProps {
     data: WeatherData;
     isLoading?: boolean;
 }
 
-export function Hero({ data, isLoading }: WeatherHeroProps) {
+export function Hero({ data, isLoading }: HeroProps) {
     const date = new Date();
     const { weekday, datetime } = Commons.formatDateTime(date);
     const ref = useSkeleton(isLoading ?? false)
@@ -31,13 +31,13 @@ export function Hero({ data, isLoading }: WeatherHeroProps) {
 
     return (
         <span ref={ref} className={styles['weather-hero']}>
-            <h1>{info.temp}</h1>
-            <h2>{info.title}</h2>
+            <h1 data-testid="hero-temp">{info.temp}</h1>
+            <h2 data-testid="hero-title">{info.title}</h2>
             <div className={styles['weather-hero__date']}>
-                <span>{`${data.name}, ${weekday}`}</span>
-                <span>{datetime}</span>
+                <span data-testid="hero-weekday">{`${data.name}, ${weekday}`}</span>
+                <span data-testid="hero-datetime">{datetime}</span>
             </div>
-            <p>{info.description}</p>
+            <p data-testid="hero-description">{info.description}</p>
         </span>
     );
 }
