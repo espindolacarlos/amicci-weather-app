@@ -1,0 +1,16 @@
+export enum WEATHER_ENUM {
+    DAY_CLEAR_SKY = 'day_clear_sky',
+    NIGHT_CLEAR_SKY = 'night_clear_sky',
+    DAY_SCATTERED_CLOUDS = 'day_scattered_clouds',
+    BROKEN_CLOUDS = 'broken_clouds',
+    FEW_CLOUDS = 'few_clouds',
+    NIGHT_SCATTERED_CLOUDS = 'night_scattered_clouds',
+    MIST = 'mist',
+    NIGHT_MIST = 'night_mist',
+    SHOWER_RAIN = 'shower_rain',
+    RAIN = 'rain',
+    NIGHT_RAIN = 'night_rain',
+    THUNDERSTORM = 'thunderstorm',
+    SNOW = 'snow',
+    NIGHT_THUNDERSTORM = 'night_thunderstorm',
+}

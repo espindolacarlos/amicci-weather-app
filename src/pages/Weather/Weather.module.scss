@@ -1,0 +1,150 @@
+@use '../../styles/colors.providers.scss' as theme;
+
+@mixin flex-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@mixin flex-column {
+    display: flex;
+    flex-direction: column;
+}
+
+$day-conditions: day_clear_sky, day_scattered_clouds, rain, thunderstorm, mist;
+$night-conditions: night_clear_sky, night_scattered_clouds, night_rain, night_thunderstorm, night_mist;
+
+.page-weather {
+    @include flex-center;
+    height: 100vh;
+    width: 100vw;
+    max-height: 100vh;
+    overflow: hidden;
+    transition: background 1.5s ease-in-out;
+    &__hero {
+        width: 100%;
+        height: 100vh;
+        max-height: 100vh;
+        @each $condition in $day-conditions {
+            &--#{$condition} {
+                background: linear-gradient(to right, theme.$primary-day, theme.$primary-day-weakest);
+                color: theme.$text;
+            }
+        }
+        @each $condition in $night-conditions {
+            &--#{$condition} {
+                background: linear-gradient(to right, theme.$primary-night, theme.$primary-night-weakest);
+                color: theme.$text;
+            }
+        }
+    }
+
+    &__details {
+        @include flex-column;
+        width: fit-content;
+        height: 100vh;
+        max-width: fit-content;
+        padding: 32px 24px;
+        box-sizing: border-box;
+        border-right: 1px solid theme.$border;
+        color: theme.$text;
+
+        &-info {
+            display: flex;
+            gap: 16px;
+            padding-top: 24px;
+
+            &-row {
+                display: flex;
+                align-items: center;
+                width: 100%;
+            gap: 16px;
+            }
+            &-col {
+                @include flex-column;
+                gap: 16px;
+            }
+        }
+        &-search {
+            display: flex;
+            gap: 8px;
+            &-autocomplete {
+                width: 100%;
+                min-width: 300px;
+            }
+            &-icon {
+                width: 56px;
+                min-width: 56px;
+                height: 56px;
+            }
+        }
+        @each $condition in $day-conditions {
+            &--#{$condition} {
+                background: theme.$primary-day;
+            }
+        }
+        @each $condition in $night-conditions {
+            &--#{$condition} {
+                background: theme.$primary-night;
+            }
+        }
+    }
+    &--mobile {
+        display: none;
+    }
+    &--desktop {
+        display: flex;
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    .page-weather {
+        overflow: scroll;
+        flex-direction: column;
+        justify-content: inherit;
+
+        &__hero {
+
+            @each $condition in $day-conditions {
+                &--#{$condition} {
+                    background: theme.$primary-day;
+                    color: theme.$text;
+                }
+            }
+            @each $condition in $night-conditions {
+                &--#{$condition} {
+                    background: theme.$primary-night;
+                    color: theme.$text;
+                }
+            }
+        }
+        &--mobile {
+            display: flex;
+        }
+        &--desktop {
+            display: none;
+        }
+        &__details {
+            height: fit-content;
+            min-height: fit-content;
+            &-info {
+                width: 100%;
+                flex-wrap: wrap;
+                align-items: center;
+                flex-direction: row;
+                &-row {
+                    align-items: center;
+                    justify-content: center;
+                }
+                &-col {
+                    width: 100%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    flex-direction: row;
+                    flex-wrap: wrap;
+                }
+            }
+        }
+    }
+}

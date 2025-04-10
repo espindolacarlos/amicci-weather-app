@@ -1,0 +1,77 @@
+@use '../../styles/colors.providers.scss' as theme;
+
+.next-days-card {
+    width: 274px;
+    height: 274px;
+    border: 1px solid theme.$border;
+    border-radius: 4px;
+    &--night {
+        background: theme.$primary-night;
+    }
+    &--day {
+        background: theme.$primary-day;
+    }
+    &__item {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        padding: 6px 12px;
+        box-sizing: border-box;
+        align-items: center;
+        height: 54px;
+        border-bottom: 1px solid theme.$border;
+        &:last-child {
+            border-bottom: none;
+        }
+        &-info {
+            h3 {
+                font-size: 16px;
+                color: theme.$text;
+                font-weight: 400;
+                margin: 0;
+                padding: 0;
+                line-height: 20px;
+            }
+        }
+        &-temp {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            font-size: 14px;
+            color: theme.$text-secondary;
+            font-weight: 400;
+            margin: 0;
+            padding: 0;
+        }
+        &-icon svg {
+            width: 20px;
+            height: 20px;
+            font-size: 20px;
+        }
+        &-icon {
+            width: 56px;
+            display: flex;
+            flex-direction: column;
+            font-size: 13px;
+            color: theme.$text-secondary;
+            align-items: center;
+            gap: 2px;
+            &--rain {
+                color: theme.$rain;
+            }
+            &--sun {
+                color: theme.$sun;
+            }
+        }
+        &-weekday {
+            text-transform: capitalize;
+        }
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    .next-days-card {
+        width: 100%;
+        max-width: 100%;
+    }
+}
